@@ -20,20 +20,17 @@ public class Main {
         }
         System.out.println("Saldo total: R$" + saldoTotal);
     }
-
-    public static void mostrarSaldoPorConta(Conta[] conta){
-        String nomeBanco = "";
-        int saldoBanco = 0;
-
-        for (int i = 0; i < conta.length; i++) {
-            nomeBanco = conta[i].banco;
-            saldoBanco =conta[i].saldo;
-
-            System.out.println("O " + nomeBanco + " tem o saldo de R$ " + saldoBanco);
+    public static int mostrarSaldoPorConta(Conta[] contas, String nomeBancoBuscado) {
+        int saldoTotal = 0;
+        for (Conta conta : contas) {
+            if (conta.banco.equals(nomeBancoBuscado)) {
+                saldoTotal += conta.saldo;
+            }
         }
-
-
+        return saldoTotal;
     }
+
+
 
 
 
@@ -41,9 +38,11 @@ public class Main {
     public static void main(String[] args) {
         Conta[] saldoContas = {
                 new Conta("Banco 01", "Agencia 01", 1000),
-                new Conta("Banco 02", "Agencia 02", 2000),
+                new Conta("Banco 01", "Agencia 01", 1000),
+                new Conta("Banco 02", "Agencia 02", 2500),
                 new Conta("Banco 03", "Agencia 03", 3000),
                 new Conta("Banco 04", "Agencia 04", 4000),
+                new Conta("Banco 04", "Agencia 04", 1000),
                 new Conta("Banco 05", "Agencia 05", 5000),
                 new Conta("Banco 06", "Agencia 06", 6000),
                 new Conta("Banco 07", "Agencia 07", 7000),
@@ -54,7 +53,14 @@ public class Main {
 
         System.out.println(saldoContas[5].saldo);
 
-        mostrarSaldoPorConta(saldoContas);
+       var conta01 = mostrarSaldoPorConta(saldoContas, "Banco 01");
+       System.out.println("O saldo total do Banco 01 é R$ " + conta01);
+
+        var conta02 = mostrarSaldoPorConta(saldoContas, "Banco 02");
+        System.out.println("O saldo total do Banco 02 é R$ " + conta02);
+
+        var conta04 = mostrarSaldoPorConta(saldoContas, "Banco 04");
+        System.out.println("O saldo total do Banco 04 é R$ " + conta04);
 
 
         imprimirSaldoTotal(saldoContas);
