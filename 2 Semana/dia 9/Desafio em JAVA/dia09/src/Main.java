@@ -20,6 +20,7 @@ public class Main {
         var retornoDaPrimeiraOcorrencia = verificaPrimeiraOcorrencia(listaDeCompras, palavraParaPesquisa);
         System.out.println("A primeira ocorrencia da palavra " + palavraParaPesquisa + " esta na posicao: " + retornoDaPrimeiraOcorrencia);
         verificaUltimaOcorrencia(listaDeCompras, palavraParaPesquisa);
+        cincoPrimeirosItens(listaDeCompras);
 
 
     }
@@ -44,9 +45,6 @@ public class Main {
         int pesquisa = palavras.lastIndexOf(palavra);
         int pesquisa2 = palavras.indexOf(palavra);
 
-
-
-
         if (pesquisa != pesquisa2){
             System.out.println("O item: " + palavra + " aparece mais de uma vez na sua lista.");
             System.out.println("E a ultima vez que ela aparece vai ser na posição: " + pesquisa);
@@ -55,6 +53,12 @@ public class Main {
         }
     }
 
-
-
+    //Pesquisa os 5 primeiros itens da lista
+    public static void cincoPrimeirosItens(List<String> palavras){
+        var listaComOsCincos = palavras.subList(0, 5);
+        System.out.println("Os 5 primeiros itens da sua lista: ");
+        for (int i = 0; i < listaComOsCincos.size(); i++) {
+            System.out.println((i+1) + " - " + listaComOsCincos.get(i));
+        }
+    }
 }
