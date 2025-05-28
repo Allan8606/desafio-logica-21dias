@@ -1,42 +1,35 @@
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int tamanhoDaCaixa = -1;
+        int tamanhoDaCaixa;
 
-
-        System.out.println("Deseja Criar Uma Caixa de Itens? Sim/Não");
+        System.out.println("Deseja criar uma caixa de itens? Sim/Não");
         String resposta = scanner.nextLine();
 
         if (resposta.equalsIgnoreCase("sim")) {
             System.out.println("Qual o nome da caixa?");
             String nomeCaixa = scanner.nextLine();
+
             System.out.println("Qual o tamanho da caixa?");
             tamanhoDaCaixa = scanner.nextInt();
             scanner.nextLine();
 
             Caixa caixa = new Caixa(nomeCaixa, tamanhoDaCaixa);
             List<String> lista = new ArrayList<>();
-            caixa.adicionandoItens(lista);
+            caixa.adicionarItens(lista);
 
-            System.out.println("Deseja tirar algum item?");
-            caixa.retirandoItens(lista, resposta);
-
-
+            System.out.println("Deseja tirar algum item? Sim/Não");
+            caixa.retirarItens(lista);
         }
-        if (resposta.equalsIgnoreCase("não") || resposta.equalsIgnoreCase("nao")){
+
+        if (resposta.equalsIgnoreCase("não") || resposta.equalsIgnoreCase("nao")) {
             System.out.println("Saindo...");
         }
 
-
-
-
-
+        scanner.close();
     }
 }
