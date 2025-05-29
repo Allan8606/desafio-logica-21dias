@@ -17,7 +17,7 @@ Durante o desafio, são abordados temas como:
 
 ## 🚀 Tecnologias utilizadas
 
-- 💻 Linguagem principal: JavaScript
+- 💻 Linguagem principal: Nos videos e exemplos, foi usado JavaScript. Mas para resolução dos problemas optei por usar a linguagem JAVA.
 
 > 📌 *Sinta-se à vontade para adaptar os desafios para outras linguagens ou formas de resolução!*
 
